@@ -1,54 +1,31 @@
-# 🤖 Sosmed Tools Pro - AI Album Maker Ultimate 🚀
+# 🎬 Sosmed Tools Pro: Broadcast Dashboard
 
-![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)
-![PySide6](https://img.shields.io/badge/GUI-PySide6-green)
-![FFmpeg](https://img.shields.io/badge/Render-FFmpeg-red)
-![OpenAI](https://img.shields.io/badge/AI-OpenAI-lightgrey)
+[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
+[![PySide6](https://img.shields.io/badge/PySide6-GUI-green.svg)](https://wiki.qt.io/Qt_for_Python)
+[![FFmpeg](https://img.shields.io/badge/FFmpeg-Engine-orange.svg)](https://ffmpeg.org/)
+[![OpenAI](https://img.shields.io/badge/OpenAI-DALL--E%203%20%7C%20GPT--3.5-black.svg)](https://openai.com/)
 
-# Sosmed Tools Pro - Broadcast Dashboard 🤖🎥
+**Sosmed Tools Pro** adalah antarmuka *dashboard* produksi video dan audio kelas agensi yang dirancang untuk automasi konten media sosial. Aplikasi ini menggabungkan eksekusi *rendering* lokal berkinerja tinggi melalui kontrol murni FFmpeg dengan kemampuan *Generative AI* untuk asisten kreatif, meminimalisir *clutter* dan *logging* pihak ketiga yang tidak perlu.
 
-**Sosmed Tools Pro** adalah solusi automasi berbasis Python yang dirancang untuk membantu kreator konten membangun video kompilasi musik berkualitas tinggi secara instan. Alat ini menggabungkan kekuatan AI (GPT-3.5 & DALL-E 3) dengan mesin render FFmpeg yang dioptimalkan untuk performa tinggi.
+Aplikasi ini dioptimalkan untuk memproduksi kompilasi musik, *podcast*, atau *faceless video* untuk didistribusikan ke **YouTube (16:9)** maupun platform vertikal seperti **TikTok dan Instagram Reels (9:16)**.
 
-## ✨ Fitur Utama
+---
 
-* **Asisten Kreatif AI Terintegrasi**: Menggunakan OpenAI GPT-3.5 untuk merancang judul album yang puitis dan ikonik, serta DALL-E 3 untuk men-generate cover art berkualitas tinggi (rasio 16:9 atau 9:16) secara otomatis.
-* **Efek Visual Sinematik**: Mendukung berbagai mode animasi cover termasuk *Slow Zoom*, *Denyut Cahaya*, *Berputar*, dan *Blur Background* untuk estetika video yang modern.
-* **Sistem Lirik/Karaoke Otomatis**: Menampilkan daftar putar di layar dengan efek highlight "Karaoke" yang sinkron dengan lagu yang sedang berjalan.
-* **Generasi YouTube Chapters**: Otomatis menciptakan file `.txt` berisi timestamp lagu yang siap digunakan untuk fitur Chapters di deskripsi YouTube.
-* **Optimasi Audio & Hardware**:
-    * **Normalisasi Volume**: Memastikan audio konsisten pada standar digital (-14 LUFS).
-    * **Akselerasi GPU**: Dukungan penuh untuk *NVIDIA NVENC* guna proses rendering yang jauh lebih cepat.
-    * **Manajemen CPU**: Opsi kontrol penggunaan core CPU untuk menjaga suhu perangkat saat rendering.
+## ✨ Sorotan Fitur (Feature Highlights)
 
-## 🛠️ Persyaratan Sistem
+### 🧠 Otomatisasi AI Terintegrasi
+* **Smart Titling:** Menggunakan GPT-3.5 untuk menganalisis nama artis dan menghasilkan *copywriting* judul album/video yang puitis dan ikonik (tanpa kata klise seperti "Kompilasi").
+* **Vector & Pop-Art Cover Generation:** Memanfaatkan DALL-E 3 untuk membuat *cover art* dengan *prompting* otomatis yang berfokus pada ilustrasi vektor atau karikatur resolusi tinggi (16:9 atau 9:16).
 
-Sebelum menjalankan aplikasi, pastikan sistem Anda memiliki komponen berikut:
+### ⚙️ Mesin Render Independen & Bersih
+* **Direct FFmpeg Subprocess:** Pemrosesan media dilakukan langsung ke mesin FFmpeg tanpa *wrapper* pihak ketiga, menjaga *pipeline* tetap transparan, mencegah *memory leak*, dan menghilangkan *log* internal yang berantakan.
+* **Hardware Acceleration (NVENC):** Dukungan *bypass* langsung ke GPU NVIDIA untuk mempercepat proses *encoding* video secara eksponensial.
+* **CPU Core Management:** Kontrol manual untuk alokasi *thread* CPU (*1 Core, 2 Core, 4 Core, Max*). Sangat krusial jika aplikasi di-*deploy* ke VPS atau *environment* dengan kapabilitas termal terbatas.
 
-1.  **Python 3.8+**
-2.  **FFmpeg & FFprobe**: Wajib terinstal di sistem dan terdaftar dalam Environment Path (PATH).
-3.  **OpenAI API Key**: Dibutuhkan jika Anda ingin menggunakan fitur otomatisasi judul dan gambar.
+### 🎛️ Studio Visual & Audio Mastering
+* **Dynamic Visual FX:** 7 mode manipulasi latar belakang termasuk *Slow Zoom*, *Breathing Vignette* (Denyut), Putaran Piringan Hitam, dan *Smart Blur*.
+* **Karaoke Highlight Engine:** Overlay teks cerdas yang secara otomatis memberikan efek *highlight* menyala pada judul lagu sesuai *timestamp* pemutaran.
+* **Auto-Mastering LUFS:** Normalisasi audio otomatis ke standar penyiaran digital murni (`-14 LUFS, True Peak -1.5dB`).
+* **YouTube Chapters Exporter:** Otomatis mengekstrak metadata durasi file dan menyusunnya menjadi file teks *timestamp* yang siap disalin.
 
-## 🚀 Instalasi
-
-1.  Clone atau unduh repository ini.
-2.  Buka terminal atau command prompt di direktori proyek.
-3.  Instal pustaka yang dibutuhkan:
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-## 📖 Cara Penggunaan
-
-1.  Jalankan aplikasi dengan perintah:
-    ```bash
-    python v1.py
-    ```
-2.  **Input API Key**: Masukkan OpenAI API Key Anda di kolom yang tersedia (tersimpan secara otomatis).
-3.  **Tambahkan Lagu**: Gunakan tombol **+ File MP3** atau **Folder** untuk menyusun playlist. Anda dapat mengatur urutan lagu dengan fitur *drag & drop*.
-4.  **Konfigurasi Visual**:
-    * Klik **Auto Generate** untuk membiarkan AI menentukan judul dan cover.
-    * Atur font, mode animasi, dan format layar (16:9 untuk YouTube atau 9:16 untuk Reels/TikTok).
-5.  **Render**: Pilih lokasi output dan klik **MULAI RENDER & EXPORT**.
-
-## 📝 Lisensi
-Proyek ini dikembangkan untuk penggunaan profesional dalam automasi konten media sosial.
+---
